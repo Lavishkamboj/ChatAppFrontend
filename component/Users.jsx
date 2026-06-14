@@ -12,7 +12,7 @@ export default function Users() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch("https://chatappbackend-production-40a2.up.railway.app/users");
+        const res = await fetch("http://localhost:8000/users");
         const data = await res.json();
         setUsers(data);
       } catch (err) {
@@ -26,7 +26,7 @@ export default function Users() {
   useEffect(() => {
     const fetchMe = async () => {
       try {
-        const res = await fetch("https://chatappbackend-production-40a2.up.railway.app/me", {
+        const res = await fetch("http://localhost:8000/me", {
           credentials: "include",
         });
         const data = await res.json();
@@ -40,7 +40,7 @@ export default function Users() {
 
   const handleClick = async (name) => {
     try {
-      const res = await fetch("https://chatappbackend-production-40a2.up.railway.app/conversation", {
+      const res = await fetch("http://localhost:8000/conversation", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -71,7 +71,7 @@ export default function Users() {
   };
 
   const filtered = users.filter(u =>
-    u.toLowerCase().includes(search.toLowerCase())
+    u.toLowerCase().includes(search.toLowerCase()) && u !== myUsername
   );
 
   return (
@@ -84,7 +84,7 @@ export default function Users() {
         </button>
       </div>
 
-      {copied && <p style={s.copiedMsg}>info copied — now you can send it to anyone </p>}
+      {copied && <p style={s.copiedMsg}>info copied — now you can send it to anyone 🎉</p>}
 
       <input
         type="text"
