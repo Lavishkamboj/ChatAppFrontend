@@ -22,7 +22,7 @@ const res1 = await fetch("https://chat-app-backend-five-murex.vercel.app/me", { 
 const data1 = await res1.json();
 // const data2 = await res2.json();
 const conv_id = localStorage.getItem("conv_id"); 
-const socket = io("https://chat-app-backend-five-murex.vercel.app/", {   //  no await
+const socket = io("https://chat-app-backend-five-murex.vercel.app", {   //  no await
   auth: {
     username: data1.username,
     conv_id: conv_id
