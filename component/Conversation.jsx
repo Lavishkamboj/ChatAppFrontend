@@ -72,7 +72,7 @@ const Conversation = () => {
           <button onClick={() => navigate('/users')} style={s.backBtn}>
             ← Back
           </button>
-          <h3 style={s.name}>{otherUser || '...'}</h3>
+          <h3 style={s.name}>Chatting with -> {otherUser || '...'}</h3>
         </div>
       </div>
 
