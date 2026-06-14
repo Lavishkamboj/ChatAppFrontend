@@ -8,9 +8,9 @@ export default function Users() {
   const [copied, setCopied] = useState(false);
   const [myUsername, setMyUsername] = useState('');
   const navigate = useNavigate();
+    navigate=useNavigate()
 
   useEffect(() => {
-    navigate=useNavigate()
     const fetchUsers = async () => {
       try {
         const res = await fetch("https://chatappbackend-production-40a2.up.railway.app/users");
