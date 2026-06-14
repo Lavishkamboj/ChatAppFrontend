@@ -13,7 +13,7 @@ export default function Users() {
     navigate=useNavigate()
     const fetchUsers = async () => {
       try {
-        const res = await fetch("http://localhost:8000/users");
+        const res = await fetch("https://chatappbackend-production-40a2.up.railway.app/users");
         const data = await res.json();
         setUsers(data);
       } catch (err) {
