@@ -8,7 +8,6 @@ export default function Users() {
   const [copied, setCopied] = useState(false);
   const [myUsername, setMyUsername] = useState('');
   const navigate = useNavigate();
-    navigate=useNavigate()
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -27,7 +26,7 @@ export default function Users() {
   useEffect(() => {
     const fetchMe = async () => {
       try {
-        const res = await fetch("http://localhost:8000/me", {
+        const res = await fetch("https://chatappbackend-production-40a2.up.railway.app/me", {
           credentials: "include",
         });
         const data = await res.json();
@@ -41,7 +40,7 @@ export default function Users() {
 
   const handleClick = async (name) => {
     try {
-      const res = await fetch("http://localhost:8000/conversation", {
+      const res = await fetch("https://chatappbackend-production-40a2.up.railway.app/conversation", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
