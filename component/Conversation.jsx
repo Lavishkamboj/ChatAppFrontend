@@ -72,7 +72,7 @@ const Conversation = () => {
     <div style={s.page}>
 
       <div style={s.topBar}>
-        <h3 style={s.name}>{otherUser || '...'}</h3>
+        <h3 style={s.name}>Chatting With : {otherUser || '...'}</h3>
       </div>
 
       <div style={s.msgArea}>
