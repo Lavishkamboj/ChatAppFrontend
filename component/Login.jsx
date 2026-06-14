@@ -20,7 +20,7 @@ const Login = () => {
     };
 
     try {
-      const res = await fetch('https://chat-app-backend-five-murex.vercel.app/login', {
+      const res = await fetch('https://chatappbackend-production-40a2.up.railway.app/login', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
