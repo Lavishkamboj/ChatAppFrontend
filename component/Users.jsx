@@ -10,6 +10,7 @@ export default function Users() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    navigate=useNavigate()
     const fetchUsers = async () => {
       try {
         const res = await fetch("http://localhost:8000/users");
@@ -110,7 +111,7 @@ export default function Users() {
         </ul>
       )}
 
-      <button style={s.backBtn} onClick={() => setShowList(true)}>
+      <button style={s.backBtn} onClick={() => navigate('/')}>
         Back
       </button>
 
