@@ -10,7 +10,7 @@ export default function Logout() {
   const handleLogout = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/logout", {
+      const res = await fetch("https://chat-app-backend-five-murex.vercel.app/logout", {
         method: "POST",
         credentials: "include",
       });
@@ -27,6 +27,8 @@ export default function Logout() {
   };
 
   return (
+    <>
+   
     <div style={s.page}>
       <h2 style={s.heading}>Logout</h2>
       <p style={s.text}>Are you sure you want to logout?</p>
@@ -38,6 +40,7 @@ export default function Logout() {
         </button>
       </div>
     </div>
+    </>
   );
 }
 

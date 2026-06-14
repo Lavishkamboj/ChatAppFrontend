@@ -12,7 +12,7 @@ export default function Users() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch("http://localhost:8000/users");
+        const res = await fetch("https://chat-app-backend-five-murex.vercel.app/users");
         const data = await res.json();
         setUsers(data);
       } catch (err) {
@@ -26,7 +26,7 @@ export default function Users() {
   useEffect(() => {
     const fetchMe = async () => {
       try {
-        const res = await fetch("http://localhost:8000/me", {
+        const res = await fetch("https://chat-app-backend-five-murex.vercel.app/me", {
           credentials: "include",
         });
         const data = await res.json();
@@ -40,7 +40,7 @@ export default function Users() {
 
   const handleClick = async (name) => {
     try {
-      const res = await fetch("http://localhost:8000/conversation", {
+      const res = await fetch("https://chat-app-backend-five-murex.vercel.app/conversation", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

@@ -20,7 +20,7 @@ const Login = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:8000/login', {
+      const res = await fetch('https://chat-app-backend-five-murex.vercel.app/login', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },

@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
     try {
-      const res = await fetch('http://localhost:8000/auth', {
+      const res = await fetch('https://chat-app-backend-five-murex.vercel.app/auth', {
         method: 'GET',
         credentials: 'include',
       });

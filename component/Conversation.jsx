@@ -31,7 +31,7 @@ const Conversation = () => {
 
   useEffect(() => {
     const fetchMessages = async () => {
-      const res = await fetch('http://localhost:8000/data', {
+      const res = await fetch('https://chat-app-backend-five-murex.vercel.app/data', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
