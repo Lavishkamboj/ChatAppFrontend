@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import socket from '../socket.js'
 
 const Conversation = () => {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [me, setMe] = useState('')
@@ -9,13 +11,7 @@ const Conversation = () => {
   const [user2, setUser2] = useState(null);
   const [otherUser, setOtherUser] = useState('');
   const bottomRef = useRef(null);
-//to reload page once bcz thir is a bug when we do ffresh signup and message some at that time conversation id is just created and to reflect that change our frontend have to refresh once otherwise it cant store message in mongo db and can only show meesage usin socket which disaaper after reload
-  useEffect(() => {
-  if (!sessionStorage.getItem('reloaded')) {
-    sessionStorage.setItem('reloaded', 'true')
-    window.location.reload()
-  }
-}, [])
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
@@ -72,7 +68,12 @@ const Conversation = () => {
     <div style={s.page}>
 
       <div style={s.topBar}>
-        <h3 style={s.name}>Chatting With : {otherUser || '...'}</h3>
+        <div style={s.topBarInner}>
+          <button onClick={() => navigate('/users')} style={s.backBtn}>
+            ← Back
+          </button>
+          <h3 style={s.name}>{otherUser || '...'}</h3>
+        </div>
       </div>
 
       <div style={s.msgArea}>
@@ -122,13 +123,26 @@ const s = {
     display: 'flex',
     justifyContent: 'center',
   },
+  topBarInner: {
+    width: '100%',
+    maxWidth: '680px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '14px',
+  },
+  backBtn: {
+    background: 'transparent',
+    border: 'none',
+    color: '#888',
+    fontSize: '14px',
+    cursor: 'pointer',
+    padding: '4px 0',
+  },
   name: {
     margin: 0,
     color: '#fff',
     fontSize: '16px',
     fontWeight: '500',
-    width: '100%',
-    maxWidth: '680px',
   },
   msgArea: {
     flex: 1,
